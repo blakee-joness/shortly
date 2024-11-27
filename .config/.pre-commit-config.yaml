@@ -1,0 +1,49 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: check-yaml
+        name: Validating YAML Files
+        exclude: mkdocs.yml
+      - id: end-of-file-fixer
+        name: Adding EOF Linebreaks
+        exclude: docs/|snapshots/
+      - id: trailing-whitespace
+        name: Removing Trailing Whitespaces
+        exclude: docs/|snapshots/
+      - id: check-added-large-files
+        name: Large File Check
+      - id: check-docstring-first
+        name: Ensuring Docstring is at Top
+      - id: check-merge-conflict
+        name: Merge Conflict String Check
+      - id: detect-private-key
+        name: Private Keys Check
+  - repo: local
+    hooks:
+      - id: create-init
+        name: Create __init__.py
+        entry: python .devcontainer/create_init_files.py
+        language: system
+        files: '\.py$'
+        always_run: true
+        fail_fast: true
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    # Ruff version.
+    rev: v0.8.0
+    hooks:
+      # Run the linter.
+      - id: ruff
+        exclude: &python_excludes migrations/|updater/
+        types: [python]
+        args: [--fix, --exit-non-zero-on-fix]
+      # Run the formatter
+      - id: ruff-format
+        exclude: *python_excludes
+        types: [python]
+  - repo: https://github.com/Riverside-Healthcare/djLint
+    rev: v1.19.16
+    hooks:
+      - id: djlint-django
+        name: Linting Django Templates
+        exclude: ^(?!shortly).*/
