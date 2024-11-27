@@ -1,0 +1,61 @@
+{
+  "files.exclude": {
+    "**/.git": false
+  },
+  "files.associations": {
+    "**/coverage/out/*.html": "html"
+  },
+  "python.terminal.activateEnvInCurrentTerminal": true,
+  "python.experiments.optInto": [
+    "All"
+  ],
+  "[json][jsonc]": {
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[python]": {
+    "editor.wordBasedSuggestions": "off",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    },
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  },
+  "ruff.organizeImports": true,
+  "python.testing.pytestArgs": [
+    "shortly"
+  ],
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true,
+  "python.envFile": "${workspaceFolder}/.config/site.env",
+  "todo-tree.general.tags": [
+    "BUG",
+    "HACK",
+    "FIXME",
+    "TODO",
+    "XXX",
+    "[ ]",
+    "[x]",
+    "MAYBE",
+    "QOL"
+  ],
+  "coverage-gutters.coverageFileNames": [
+    "lcov.info",
+    "cov.xml",
+    "coverage.xml",
+    "jacoco.xml",
+    "coverage.cobertura.xml",
+    "cobertura-coverage.xml"
+  ],
+  "jupyter.notebookFileRoot": "${workspaceFolder}/shortly/",
+  "python.REPL.enableREPLSmartSend": false,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports.biome": "explicit"
+  },
+  "python.analysis.autoImportCompletions": true,
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run Server",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/shortly/manage.py",
+      "args": [
+        "runserver"
+      ],
+      "django": true,
+      "justMyCode": false,
+      "envFile": "${workspaceFolder}/.config/site.env",
+      "env": {
+        "PYDEVD_WARN_SLOW_RESOLVE_TIMEOUT": "2",
+        "PYTHONWARNINGS": "default"
+      }
+    },
+    {
+      "name": "Django Shell",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/shortly/manage.py",
+      "args": [
+        "shell"
+      ],
+      "django": true,
+      "justMyCode": false,
+      "envFile": "${workspaceFolder}/.config/site.env",
+    },
+    {
+      "name": "Generate Test Coverage",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "pytest",
+      "args": [
+        "shortly",
+        "--cov",
+        "--cov-report",
+        "xml:cov.xml",
+        "--cov-branch"
+      ],
+      "django": true,
+      "justMyCode": false,
+      "postDebugTask": "show branch coverage",
+      "envFile": "${workspaceFolder}/.config/site.env",
+      "env": {
+        "TESTING_ENVIRONMENT": "true"
+      }
+    },
+  ],
+}
